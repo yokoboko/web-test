@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+      function mobileShowScanCode() {
+        let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        if (isIOS) {
+          window.webkit.messageHandlers.scanCode.postMessage();
+        }
+      }
+      function mobileOnCodeResult(data) {
+          document.getElementById("mobileCodeResult").textContent = data;
+      }
+      function mobileOnDeviceId(data) {
+          document.getElementById("mobileDeviceId").textContent = data;
+      }
+      function mobileOnNotificatio n(data) {
+          document.getElementById("mobileNotification").textContent = data;
+      }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="mobileShowScanCode()" value="Scan Code">
+    <p id="mobileCodeResult"></p>
+    <p id="mobileDeviceId"></p>
+    <p id="mobileNotification"></p>
+</body>
+</html>
