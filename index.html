@@ -2,10 +2,12 @@
 <html>
 <head>
     <script>
-      function mobileShowScanCode() {
+      function mobileScanCode() {
         let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
         if (isIOS) {
           window.webkit.messageHandlers.scanCode.postMessage();
+        } else if(typeof Android !== "undefined" && Android !== null) {
+            Android.scanCode();
         }
       }
       function mobileOnCodeResult(data) {
@@ -20,7 +22,7 @@
     </script>
 </head>
 <body>
-    <input type="button" onclick="mobileShowScanCode()" value="Scan Code">
+    <input type="button" onclick="mobileScanCode()" value="Scan Code">
     <p id="mobileCodeResult"></p>
     <p id="mobileDeviceId"></p>
     <p id="mobileNotification"></p>
