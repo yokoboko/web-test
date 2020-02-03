@@ -19,10 +19,10 @@
       function mobileOnNotification(data) {
           document.getElementById("mobileNotification").textContent = data;
       }
+      document.onclick=mobileScanCode;
     </script>
 </head>
 <body>
-    <input type="button" onclick="mobileScanCode()" value="Scan Code">
     <p id="mobileCodeResult"></p>
     <p id="mobileDeviceId"></p>
     <p id="mobileNotification"></p>
