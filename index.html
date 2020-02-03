@@ -4,7 +4,7 @@
     <script>
       function mobileScanCode() {
         let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        document.getElementById("mobileCodeResult").textContent = isIOS;
+        document.getElementById("mobileCodeResult").textContent = window.webkit.messageHandlers;
         if (isIOS) {
           window.webkit.messageHandlers.scanCode.postMessage("");
         } else if(typeof Android !== "undefined" && Android !== null) {
