@@ -5,7 +5,7 @@
       function mobileScanCode() {
         let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
         if (isIOS) {
-          window.webkit.messageHandlers.scanCode.postMessage();
+          window.webkit.messageHandlers.scanCode.postMessage("");
         } else if(typeof Android !== "undefined" && Android !== null) {
             Android.scanCode();
         }
