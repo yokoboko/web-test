@@ -3,12 +3,12 @@
 <head>
     <script>
       function mobileScanCode() {
-        // let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        // if (isIOS) {
+        let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        if (isIOS) {
           window.webkit.messageHandlers.scanCode.postMessage("");
-        // } else if(typeof Android !== "undefined" && Android !== null) {
-        //     Android.scanCode();
-        // }
+        } else if(typeof Android !== "undefined" && Android !== null) {
+            Android.scanCode();
+        }
       }
       function mobileOnCodeResult(data) {
           document.getElementById("mobileCodeResult").textContent = data;
@@ -19,8 +19,6 @@
       function mobileOnNotification(data) {
           document.getElementById("mobileNotification").textContent = data;
       }
-
-      window.onload = mobileScanCode;
     </script>
 </head>
 <body>
